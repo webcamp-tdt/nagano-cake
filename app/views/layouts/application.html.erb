@@ -11,6 +11,29 @@
   </head>
 
   <body>
+    <header class = "Small shadow">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <div>
+            <ul class="navbar-nav ml-auto">
+            <% if coutomer_signed_in? %>
+              <li>
+              </li>
+            <% elsif admin_signed_in? %>
+              <li>
+              </li>
+            <% elsif coutomer_signed_out? %>
+              <li>
+              </li>
+            <% else admin_signed_out? %>
+              <li>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
