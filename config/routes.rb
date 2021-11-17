@@ -31,7 +31,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :orders, :only => [:new, :create, :index, :show]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
-    resources :customers, :only => [:edit, :update, :show]
+    resource :customers, :only => [:edit, :update]
+    get 'custmers/mypage' => 'custmers#show'
     get 'customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
     resources :shippings, :except => [:new, :show]
