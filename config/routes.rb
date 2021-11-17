@@ -25,13 +25,14 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   scope module: :customer do
     root to: 'homes#top'
     get 'home/about' => 'homes#about'
-    resources :items, :only => [:update, :show]
+    resources :items, :only => [:index, :show]
     resources :cart_items, :only => [:create, :index, :destroy, :update]
     delete :cart_items, to: 'cart_items#destroy_all'
     resources :orders, :only => [:new, :create, :index, :show]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
-    resources :customers, :only => [:edit, :update, :show]
+    resource :customers, :only => [:edit, :update]
+    get 'custmers/mypage' => 'custmers#show'
     get 'customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
     resources :shippings, :except => [:new, :show]
