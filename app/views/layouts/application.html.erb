@@ -16,13 +16,10 @@
         <div class="container">
           <div>
             <ul class="navbar-nav ml-auto">
-            <% if coutomer_signed_in? %>
+            <% if customer_signed_in? %>
               <li>
               </li>
             <% elsif admin_signed_in? %>
-              <li>
-              </li>
-            <% elsif coutomer_signed_out? %>
               <li>
               </li>
             <% else admin_signed_out? %>
