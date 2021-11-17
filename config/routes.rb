@@ -25,7 +25,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   scope module: :customer do
     root to: 'homes#top'
     get 'home/about' => 'homes#about'
-    resources :items, :only => [:update, :show]
+    resources :items, :only => [:index, :show]
     resources :cart_items, :only => [:create, :index, :destroy, :update]
     delete :cart_items, to: 'cart_items#destroy_all'
     resources :orders, :only => [:new, :create, :index, :show]

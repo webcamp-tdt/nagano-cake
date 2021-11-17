@@ -12,21 +12,36 @@
 
   <body>
     <header class = "Small shadow">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
           <div>
             <ul class="navbar-nav ml-auto">
-            <% if coutomer_signed_in? %>
+            <% if customer_signed_in? %>
               <li>
               </li>
             <% elsif admin_signed_in? %>
               <li>
               </li>
-            <% elsif coutomer_signed_out? %>
-              <li>
+            <% else %>
+              <li class="nav-item">
+                <button type="button" class="btn btn-outline-secondary", style="margin: 20px;">
+                 <%= link_to "About", home_about_path, class:"nav-link active btn" %>
+                </button>
               </li>
-            <% else admin_signed_out? %>
-              <li>
+              <li class="nav-item">
+                <button type="button" class="btn btn-outline-secondary", style="margin: 20px;">
+                 <%= link_to "商品一覧", items_path, class:"nav-link btn" %>
+                 </button>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn btn-outline-secondary", style="margin: 20px;">
+                 <%= link_to "新規登録", new_customer_registration_path, class:"nav-link btn" %>
+                </button>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn btn-outline-secondary", style="margin: 20px;">
+                 <%= link_to "ログイン", new_customer_session_path, class:"nav-link btn" %>
+                </button>
               </li>
             <% end %>
             </ul>
