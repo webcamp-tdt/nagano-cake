@@ -36,7 +36,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
     resources :shippings, :except => [:new, :show]
-
   end
 
 
