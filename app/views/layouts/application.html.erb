@@ -10,22 +10,45 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header class = "Small shadow">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <body class ="d-flex flex-row bd-highlight mb-3">
+    <header class = "shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <div>
             <ul class="navbar-nav ml-auto">
-            <% if coutomer_signed_in? %>
+            <% if customer_signed_in? %>
+              <li class = nav-item>
+                <%= link_to "マイページ", customer_path, class: "btn btn-sm btn-light" %>
+              </li>
               <li>
+                <%= link_to "商品一覧", items_path, class: "btn btn-sm btn-light" %>
+              </li>
+              <li>
+                <%= link_to "カート", cart_items_path, class: "btn btn-sm btn-light" %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", root_path, class: "btn btn-sm btn-light" %>
               </li>
             <% elsif admin_signed_in? %>
+              <li class = nav-item>
+                <%= link_to "商品一覧", admin_items_path, class: "btn btn-sm btn-light" %>
+              </li>
+              <li class = nav-item>
+                <%= link_to "会員一覧", admin_customers_path, class: "btn btn-sm btn-light" %>
+              </li>
+              <li class = nav-item>
+                <%= link_to "注文履歴一覧", admin__path, class: "btn btn-sm btn-light" %>
+              </li>
+              <li class = nav-item>
+                <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-sm btn-light" %>
+              </li>
+              <li class = nav-item>
+                <%= link_to "ログアウト", root_path, class: "btn btn-sm btn-light" %>
+              </li>
+            <% elsif customer_signed_in? %>
               <li>
               </li>
-            <% elsif coutomer_signed_out? %>
-              <li>
-              </li>
-            <% else admin_signed_out? %>
+            <% else admin_signed_in? %>
               <li>
               </li>
             <% end %>
