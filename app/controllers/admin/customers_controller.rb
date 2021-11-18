@@ -1,15 +1,16 @@
 class Admin::CustomersController < ApplicationController
-    
+
   def index
-  end 
-  
+    @customers = Customer.all
+  end
+
   def show
-  end 
-  
+  end
+
   def edit
-  end 
-  
+  end
+
   def update
-  end 
-  
+  end
+
 end
