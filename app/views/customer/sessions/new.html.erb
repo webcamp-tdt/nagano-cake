@@ -1,35 +1,65 @@
 <div class="container">
-  <div class="row">
-    <div class="table table-striped">
-      <div class="mx-auto col-10">
-    <div class="bg-secondary text-body col-2">
-     <h5>ログイン</h5>
-   </div>
-      <p>
-        会員の方はこちらからログイン
-      </p>
- <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :メールアドレス %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :パスワード %>
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-  
-    <div class="actions col-4">
-      <%= f.submit "ログイン", class:"btn btn-primary" %>
-    </div>
- <% end %>
-
-  <p>会員登録がお済みでない方</p>
-      <div>
-       <%= render "customer/shared/links" %>から新規登録を行ってください
+ <div class="row">
+   <div class="mx-auto col-10">
+    <div class="row">
+     <div style="margin-bottom: 30px;">
+       <span style="font-size: 20px; background-color: #dcdcdc">
+        ログイン
+       </span>
       </div>
-      
+    </div>
+     <span style="background-color: #dcdcdc">
+        会員の方はこちらからログイン
+     </span>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <table style="margin: auto;">
+    <tr>
+     <td>
+      <div style="margin-right: 30px;">
+       <%= f.label :メールアドレス %>
+      </div>
+     </td>
+     <td>
+       <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x5", placeholder: "sample@example.com" %>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <%= f.label :パスワード %>
+     </td>
+     <td>
+      <%= f.password_field :password, autocomplete: "current-password", size: "50x5" %>
+     </td>
+    </tr>
+    <tr>
+     <td></td>
+     <td>
+      <div class="actions" style="margin-top: 30px;">
+        <%= f.submit "ログイン", class:"btn btn-primary" %>
+      </div>
+     </td>
+    </tr>
+  </table>
+  <% end %>
+  <table>
+   <tr>
+    <td>
+     <span style="background-color: #dcdcdc">
+      会員登録がお済みでない方
+     </span>
+    </td>
+   </tr>
+  </table>
+     <table>
+      <tr>
+        <td>
+          <%= render "customer/shared/links" %>
+        </td>
+        <td>
+          <p>から新規登録を行ってください</p>
+        </td>
+      </tr>
+     </table>
    </div> 
-  </div> 
  </div> 
 </div>
