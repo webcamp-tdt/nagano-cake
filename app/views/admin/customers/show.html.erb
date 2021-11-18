@@ -1,5 +1,5 @@
 <span style="font-size:20px;background-color:#dcdcdc">
- <strong><%= @customer.last_name.first_name %></strong>さんの<strong>会員詳細</strong>
+ <strong><%= @customer.full_name %></strong>さんの<strong>会員詳細</strong>
 </span>
 　
 <table>
@@ -25,7 +25,8 @@
  </td>
  <td>
   <div>
-    <%= @customer.last_name.first_name %>
+    <%= @customer.last_name %>
+    <%= @customer.first_name %>
   </div>
  </td>
 </tr>
@@ -38,7 +39,8 @@
  </td>
  <td>
   <div>
-    <%= @customer.last_name_kana.first_name_kana %>
+    <%= @customer.last_name_kana %>
+    <%= @customer.first_name_kana %>
   </div>
  </td>
 </tr>
@@ -110,6 +112,6 @@
 
 </table>
 
-<%= link_to '編集する', edit_admin_customer_path(customer) %>
+<%= link_to '編集する', edit_admin_customer_path(@customer) %>
 
-<%= link_to '注文履歴一覧を見る', admin_admin_path(order) %>
+<%= link_to '注文履歴一覧を見る', admin_admin_path(order_url) %>
