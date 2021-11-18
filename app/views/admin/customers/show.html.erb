@@ -1,0 +1,115 @@
+<span style="font-size:20px;background-color:#dcdcdc">
+ <strong><%= @customer.last_name.first_name %></strong>さんの<strong>会員詳細</strong>
+</span>
+
+<table>
+    
+<tr>
+ <td>
+  <div class="field" style="margin-right: 40px;">
+   <p>会員ID</p>
+  </div>
+ </td>
+ <td>
+  <div>
+    <%= @customer.id %>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  <div class="field">
+   <p>氏名</p>
+  </div>
+ </td>
+ <td>
+  <div>
+    <%= @customer.last_name.first_name %>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  <div class="field">
+   <p>フリガナ</p>
+  </div>
+ </td>
+ <td>
+  <div>
+    <%= @customer.last_name_kana.first_name_kana %>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  <div class="field">
+   <p>郵便番号</p>
+  </div>
+ </td>
+ <td>
+  <div>
+    <%= @customer.postcode %>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  <div class="field">
+   <p>住所</p>
+  </div>
+ </td>
+ <td>
+  <div>
+    <%= @customer.address %>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  <div class="field">
+   <p>電話番号</p>
+  </div>
+ </td>
+ <td>
+  <div>
+    <%= @customer.phone_number %>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  <div class="field">
+   <p>メールアドレス</p>
+  </div>
+ </td>
+ <td>
+  <div>
+    <%= @customer.email %>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  <div class="field">
+   <p>会員ステータス</p>
+  </div>
+ </td>
+ <td>
+  <div>
+    <%= @customer.is_deleted %>
+  </div>
+ </td>
+</tr>
+
+</table>
+
+<%= link_to '編集する', edit_admin_customer_path(customer) %>
+
+<%= link_to '注文履歴一覧を見る', admin_admin_path(order) %>
