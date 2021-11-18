@@ -1,27 +1,53 @@
 <div class="container">
-  <h2>管理者ログイン</h2>
-  <div class="row justify-content-md-center">
-    <div >
-
+  <div style="font-weight:550;margin:30px;">
+    <span style="font-size:20px;background-color:#dcdcdc">管理者ログイン</span>
+  </div>
+  <div>
+    <div style="width:100%;">
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field" >
-          <%= f.label :email, "メールアドレス" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
+      <table style="margin:auto;">
+        <tbody>
+          <tr>
+            <td>
+              <div class="field" style="margin-right: 30px;" >
+                <%= f.label :email, "メールアドレス" %>
+              </div>
+            </td>
+            <td>
+              <div class="field" >
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com", size:"50x5%" %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="field" style="margin-top: 20px" >
+                <%= f.label :password, "パスワード" %>
+              </div>
+            </td>
+            <td>
+              <div class="field" >
+                <%= f.password_field :password, autocomplete: "current-password", size:"50x5%" %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            <td>
+              <div class="field button_wrapper" style="margin-top: 20px">
+                <button class="btn btn-primary" type="submit">
+                  <%= "ログイン" %>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-        <div class="field" >
-          <%= f.label :password, "パスワード" %>
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-
-
-
-        <div class="field">
-          <button class="btn btn-primary" type="submit">
-            <%= "ログイン" %>
-          </button>
-        </div>
       <% end %>
     </div>
+  </div>
+</div>
 <%= render "admin/shared/links" %>
