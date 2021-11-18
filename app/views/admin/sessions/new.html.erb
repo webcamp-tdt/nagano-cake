@@ -10,13 +10,13 @@
         <tbody>
           <tr>
             <td>
-              <div class="field" style="margin-right: 30px;" >
+              <div class="field" style="margin-right: 30px;">
                 <%= f.label :email, "メールアドレス" %>
               </div>
             </td>
             <td>
-              <div class="field" >
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com", size:"50x5%" %>
+              <div class="field"  align="right">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com", size:"50x5" %>
               </div>
             </td>
           </tr>
@@ -26,7 +26,7 @@
                 <%= f.label :password, "パスワード" %>
               </div>
             </td>
-            <td>
+            <td align="right">
               <div class="field" >
                 <%= f.password_field :password, autocomplete: "current-password", size:"50x5%" %>
               </div>
