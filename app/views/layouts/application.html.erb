@@ -20,7 +20,7 @@
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
               <li class = nav-item>
-                <%= link_to "マイページ", customer_path, class: "btn btn-sm btn-light" %>
+                <%= link_to "マイページ", customers_mypage_path, class: "btn btn-sm btn-light" %>
               </li>
               <li>
                 <%= link_to "商品一覧", items_path, class: "btn btn-sm btn-light" %>

@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row">
+    <div style="margin: 30px;">
+      <span style="font-size:20px;background-color:#dcdcdc"><%= customer.first_name(@customer.id) %><%= customer.last_name(@customer.id) %>さんの会員情報編集</span>
+    </div>
+
+  　<% if @user.errors.any? %>
+      <%= @user.errors.count %>件のエラーが発生しました
+      <% @user.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+
+  <%= form_with model:@customer, local:true do |f| %>
+    <div class = "col-md">
+      <form>
+        <table>
+          <tr>
+            <td>
+              <%= f.label :会員ID %>
+            </td>
+            <td>
+              <%= f :id, autofocus: true %>
+            </td>
+          <tr>
+            <td>
+              <%= f.label :氏名 %>
+            </td>
+            <td>
+              <%= f.text_field :first_name, autofocus: true %>
+
+              <%= f.text_field :last_name, autofocus: true %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= f.label :フリガナ %>
+            </td>
+            <td>
+              <%= f.text_field :first_name_kana, autofocus: true %>
+
+              <%= f.text_field :last_name_kana, autofocus: true %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= f.label :郵便番号 %>
+            </td>
+            <td>
+              <%= f.text_field :phone_number, autofocus: true %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= f.label :住所 %>
+            </td>
+            <td>
+              <%= f.text_field :postcode, autofocus: true, autocomplete: "住所", size: "60x5" %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= f.label :電話番号 %>
+            </td>
+            <td>
+              <%= f.text_field :phone_number, autofocus: true %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= f.label :メールアドレス %>
+            </td>
+            <td>
+              <%= f.email_field :email, autofocus: true %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= f.label :会員ステータス %>
+            </td>
+            <td>
+
+            </td>
+          </tr>
+
+          <tr></tr>
+
+          <tr>
+            <td></td>
+            <td>
+              <%= f.submit "変更を保存", class: "btn btn-block btn-sm btn-success" %>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  <% end %>
+  </div>
+</div>
