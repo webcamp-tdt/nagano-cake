@@ -1,6 +1,6 @@
 class Customer::CustomersController < ApplicationController
     
-  def show
+  def show 
   end 
   
   def edit
