@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
     <div style="margin: 30px;">
-      <span style="font-size:20px;background-color:#dcdcdc"><%= customer.first_name(@customer.id) %><%= customer.last_name(@customer.id) %>さんの会員情報編集</span>
+      <span style="font-size:20px;background-color:#dcdcdc"><%= @customer.full_name %>さんの会員情報編集</span>
     </div>
 
-  　<% if @user.errors.any? %>
-      <%= @user.errors.count %>件のエラーが発生しました
-      <% @user.errors.full_messages.each do |message| %>
+  　<% if @customer.errors.any? %>
+      <%= @customer.errors.count %>件のエラーが発生しました
+      <% @customer.errors.full_messages.each do |message| %>
         <%= message %>
       <% end %>
     <% end %>
 
-  <%= form_with model:@customer, local:true do |f| %>
+  <%= form_with model:@customer, url:edit_admin_customer_path, local:true do |f| %>
     <div class = "col-md">
       <form>
         <table>
@@ -20,7 +20,7 @@
               <%= f.label :会員ID %>
             </td>
             <td>
-              <%= f :id, autofocus: true %>
+              <%#= f :id, autofocus: true %>
             </td>
           <tr>
             <td>
@@ -49,7 +49,7 @@
               <%= f.label :郵便番号 %>
             </td>
             <td>
-              <%= f.text_field :phone_number, autofocus: true %>
+              <%= f.text_field :postcode, autofocus: true %>
             </td>
           </tr>
 
@@ -58,7 +58,7 @@
               <%= f.label :住所 %>
             </td>
             <td>
-              <%= f.text_field :postcode, autofocus: true, autocomplete: "住所", size: "60x5" %>
+              <%= f.text_field :address, autofocus: true, autocomplete: "住所", size: "60x5" %>
             </td>
           </tr>
 
