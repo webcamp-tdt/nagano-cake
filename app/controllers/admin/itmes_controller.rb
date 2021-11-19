@@ -1,23 +1,24 @@
 class Admin::ItmesController < ApplicationController
-    
+
   def new
-  end 
-  
+  end
+
   def index
-  end 
-  
+  end
+
   def show
-  end 
-  
-  def edit 
-  end 
-  
+    @items = Items.find(params[:id])
+  end
+
+  def edit
+  end
+
   def create
-  end 
-  
+  end
+
   def update
-  end 
-  
-  
-    
+  end
+
+
+
 end
