@@ -43,8 +43,10 @@
               <td style = "border: solid 1px #696969"><%= shipping.address %></td>
               <td style = "border: solid 1px #696969"><%= shipping.receiver %></td>
               <td style = "border: solid 1px #696969">
-                <%= link_to "編集する", edit_shipping_path(shipping.id), class: "btn btn-sm btn-success" %>
-                <%= link_to "削除する", shipping_path(shipping.id), class: "btn btn-sm btn-danger", method: :delete %>
+                <div style = "text-align: center">
+                  <%= link_to "編集する", edit_shipping_path(shipping.id), class: "btn btn-sm btn-success" %>
+                  <%= link_to "削除する", shipping_path(shipping.id), class: "btn btn-sm btn-danger", method: :delete %>
+                </div>
               </td>
             </tr>
           <% end %>

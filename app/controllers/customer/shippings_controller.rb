@@ -7,6 +7,7 @@ class Customer::ShippingsController < ApplicationController
   end
 
   def edit
+    @shipping = Shipping.find(params[:id])
   end
 
   def create
@@ -16,6 +17,9 @@ class Customer::ShippingsController < ApplicationController
   end
 
   def update
+    @shipping = Shipping.find(params[:id])
+    @shipping.update(shipping_params)
+    redirect_to shippings_path
   end
 
   def destroy

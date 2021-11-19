@@ -18,7 +18,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :items, :except => :destroy
     resources :genres, :except => [:new, :show, :destroy]
     resources :customers, :except => [:new, :create, :destroy]
-    resources :orders, :only => [:show, :update]
+    resources :orders, :only => [:show, :update, :index,]
     resources :order_items, :only => :update
   end
 
