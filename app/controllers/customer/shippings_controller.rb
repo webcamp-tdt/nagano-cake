@@ -1,18 +1,33 @@
 class Customer::ShippingsController < ApplicationController
-    
+
   def index
-  end 
-  
+    @shippings = Shipping.all
+    @shipping_new = Shipping.new
+    #@shipping = Shipping.find(params[:id])
+  end
+
   def edit
-  end 
-  
+  end
+
   def create
-  end 
-  
+    @shipping = Shipping.new(shipping_params)
+    @shipping.save
+    redirect_to shippings_path
+  end
+
   def update
-  end 
-  
+  end
+
   def destroy
-  end 
-  
+    @shipping = Shipping.find(params[:id])
+    @shipping.destroy
+    redirect_to shippings_path
+  end
+
+  private
+  # ストロングパラメータ
+  def shipping_params
+    params.require(:shipping).permit(:postcode, :address, :receiver)
+  end
+
 end
