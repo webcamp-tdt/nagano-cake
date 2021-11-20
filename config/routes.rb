@@ -17,8 +17,15 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get '/admin' => 'homes#top'
     resources :items, :except => :destroy
     resources :genres, :except => [:new, :show, :destroy]
-    resources :customers, :except => [:new, :create, :destroy]
-    resources :orders, :only => [:show, :update, :index,]
+
+    resources :customers, :except => [:new, :create, :destroy] do
+      member do
+        patch "withdraw"
+            #ユーザーの会員状況を更新
+      end
+    end
+    resources :orders, :only => [:show, :update, :index]
+
     resources :order_items, :only => :update
   end
 
@@ -31,7 +38,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :orders, :only => [:new, :create, :index, :show]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
-    resource :customers, :only => [:edit, :update]
+
+    patch 'customers/mypage' => 'customers#update'
+    get 'customers/mypage/edit' => 'customers#edit'
     get 'customers/mypage' => 'customers#show'
     get 'customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
