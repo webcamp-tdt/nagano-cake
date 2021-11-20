@@ -8,8 +8,8 @@ class Customer::OrdersController < ApplicationController
   end 
   
   def show
-    @order = Oeder_item.find(params[:id])
     @order = Order.find(params[:id])
+    @order_item = @order.order_items
   end 
   
   def create
