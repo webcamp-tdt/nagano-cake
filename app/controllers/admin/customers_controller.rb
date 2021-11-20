@@ -12,6 +12,10 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
+
+  def withdraw
+  end
+
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
@@ -21,6 +25,13 @@ class Admin::CustomersController < ApplicationController
       flash[:danger] = "プロフィールの更新に失敗しました"
       render :edit
     end
+  end
+
+
+  private
+  # ストロングパラメータ
+  def customer_params
+    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postcode, :address, :phone_number, :email, :is_deleted)
   end
 
 end
