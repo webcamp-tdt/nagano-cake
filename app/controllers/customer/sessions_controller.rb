@@ -14,9 +14,9 @@ class Customer::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
+  #def destroy
   #   super
-  # end
+  #end
 
   # protected
 
@@ -24,6 +24,7 @@ class Customer::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
   before_action :check_customer, only: [:create]
   
   def check_customer
@@ -33,3 +34,4 @@ class Customer::SessionsController < Devise::SessionsController
     end
   end  
 end
+

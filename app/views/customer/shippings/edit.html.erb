@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class = "col-md">
+      <div style="margin: 30px;">
+        <span style="font-size:20px;background-color:#dcdcdc">配送先編集</span>
+      </div>
+
+      <%= form_with model:@shipping, url:shipping_path(@shipping.id), local:true do |f| %>
+        <form>
+          <table style="margin-bottom: 50px;">
+            <tr>
+              <td><%= f.label :郵便番号（ハイフンなし） %></td>
+              <td><%= f.text_field :postcode, autofocus: true %></td>
+            </tr>
+
+            <tr>
+              <td><%= f.label :住所 %></td>
+              <td><%= f.text_field :address, autofocus: true, size: "60x5" %></td>
+            </tr>
+
+            <tr>
+              <td><%= f.label :宛名 %></td>
+              <td><%= f.text_field :receiver, autofocus: true %></td>
+              <td><%= f.submit "変更内容を保存", class: "btn  btn-sm btn-success" %></td>
+            </tr>
+          </table>
+        </form>
+      <% end %>
+    </div>
+  </div>
+</div>

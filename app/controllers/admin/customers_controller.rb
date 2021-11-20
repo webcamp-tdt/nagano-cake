@@ -2,7 +2,6 @@ class Admin::CustomersController < ApplicationController
 
   def index
     @customers = Customer.all
-
   end
 
   def show
@@ -26,6 +25,13 @@ class Admin::CustomersController < ApplicationController
       flash[:danger] = "プロフィールの更新に失敗しました"
       render :edit
     end
+  end
+
+
+  private
+  # ストロングパラメータ
+  def customer_params
+    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postcode, :address, :phone_number, :email, :is_deleted)
   end
 
 end

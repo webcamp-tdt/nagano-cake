@@ -17,6 +17,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get '/admin' => 'homes#top'
     resources :items, :except => :destroy
     resources :genres, :except => [:new, :show, :destroy]
+
     resources :customers, :except => [:new, :create, :destroy] do
       member do
         patch "withdraw"
@@ -24,6 +25,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       end
     end
     resources :orders, :only => [:show, :update, :index]
+
     resources :order_items, :only => :update
   end
 
