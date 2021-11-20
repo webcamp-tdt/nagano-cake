@@ -5,10 +5,12 @@
         <span style="font-size:20px;background-color:#dcdcdc">商品詳細</span>
       </div>
 
+      <%#= attachment_image_tag @item, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+
       <table>
         <tr style="padding:30px">
           <td>商品名</td>
-          <td><%= @items.name %></td>
+          <td><%= @item.name %></td>
         </tr>
 
         <tr style="padding:30px">
@@ -34,3 +36,6 @@
           <td></td>
         </tr>
       </table>
+    </div>
+  </div>
+</div>

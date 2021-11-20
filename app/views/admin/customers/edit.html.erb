@@ -12,7 +12,7 @@
         <% end %>
       <% end %>
 
-      <%= form_with model:@customer, url:edit_admin_customer_path, local:true do |f| %>
+      <%= form_with model:@customer, url:admin_customer_path(@customer.id), local:true do |f| %>
         <form>
           <table>
             <tr>
