@@ -1,34 +1,42 @@
-<span style="font-size: 20px; background-color: #dcdcdc">
-    注文履歴一覧
-</span>
+<div class="container">
+  <div class="row">
+    <div class = "col-md">
 
-<table>
-  <thead style="background-color: #dcdcdc">
-    <tr>
-      <th>注文日</th>
-      <th>配送先</th>
-      <th>注文商品</th>
-      <th>支払金額</th>
-      <th>ステータス</th>
-      <th>注文詳細</th>
-    </tr>  
-  </thead>
-  
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.created_at %></td> 
-        <td><%= order.delivery %></td>
-          <% @order_items = order.order_items %>
-        <td>
-          <% @order_items.each do |order_item| %>
-          <%= order_item.item.name %>
+      <span style="font-size: 20px; background-color: #dcdcdc">
+          注文履歴一覧
+      </span>
+      
+      <table style="margin: 0 10%;">
+        <thead style="background-color: #dcdcdc">
+          <tr>
+            <th>注文日</th>
+            <th>配送先</th>
+            <th>注文商品</th>
+            <th>支払金額</th>
+            <th>ステータス</th>
+            <th>注文詳細</th>
+          </tr>  
+        </thead>
+        
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.created_at %></td> 
+              <td><%= order.delivery %></td>
+                <% @order_items = order.order_items %>
+              <td>
+                <% @order_items.each do |order_item| %>
+                <%= order_item.item.name %>
+                <% end %>
+              </td>
+              <td><%= order.total_payment %></td>
+              <td><%= order.status %></td>
+              <td><%= link_to '表示する', order_path, class:"btn btn-primary" %></td>
+            </tr>
           <% end %>
-        </td>
-        <td><%= order.total_payment %></td>
-        <td><%= order.status %></td>
-        <td><%= link_to '表示する', order_path, class:"btn btn-primary" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+      
+   </div>
+  </div>
+</div>
