@@ -32,7 +32,7 @@
         <td>
           <%= genre.name %>
         </td>
-        <td><%= link_to "編集する", edit_admin_genre_path, class: "btn btn-sm btn-secondary" %></td>
+        <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-sm btn-secondary" %></td>
       </tr>
     <% end %>
   </tbody>
