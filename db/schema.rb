@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 2021_11_16_074153) do
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
-
+item_id
   create_table "cart_items", force: :cascade do |t|
-    t.integer "item_id"
+    t.integer ""
     t.integer "customer_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
