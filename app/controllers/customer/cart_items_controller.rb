@@ -1,18 +1,20 @@
 class Customer::CartItemsController < ApplicationController
-    
+
   def index
-  end 
-  
+  end
+
   def create
-  end 
-  
+    @cart_item = Cartitem.new(cart_items_params)
+  end
+
   def update
-  end 
-  
+  end
+
   def destroy
-  end 
-  
+  end
+
   def destroy_all
-  end 
-  
+  end
+
+
 end

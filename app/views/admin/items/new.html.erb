@@ -2,39 +2,39 @@
   <div class="row">
     <div class = "col-md">
       <div style="margin: 30px;">
-        <span style="font-size:20px;background-color:#dcdcdc">商品新規登録</span>
+        <span style="font-size:20px;background-color:#dcdcdc;padding: 10px;"><strong>商品新規登録</strong></span>
       </div>
 
       <%= form_with model:@item, url:admin_items_path, local:true do |f| %>
       <form>
           <table style = "margin: 0 10%;">
             <tr>
-              <td><%= f.label :商品画像 %></td>
+              <td style = "padding: 0 30px 0 0;"><%= f.label :商品画像 %></td>
                 <td><%= f.attachment_field :image, autofocus: true, size: "60x5" %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :商品名 %></td>
+              <td style = "padding: 0 30px 0 0;"><%= f.label :商品名 %></td>
               <td><%= f.text_field :name, autofocus: true, size: "60x5", placeholder: "商品名" %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :商品説明 %></td>
+              <td style = "padding: 0 30px 0 0;"><%= f.label :商品説明 %></td>
               <td><%= f.text_area :introduction, autofocus: true, size: "60x5", placeholder: "ここに説明文を記述します" %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :ジャンル %></td>
-              <td><%= f.select :genre_id, options_for_select([['ジャンルを選択してください', ''], ['ケーキ', '1'], ['プリン', '2'], ['焼き菓子', '3'], ['キャンディ', '4']]), {}, {class: 'genre__select'} %><%#= f.text_field :genre_id, autofocus: true, size: "60x5" %></td>
+              <td style = "padding: 0 30px 0 0;"><%= f.label :ジャンル %></td>
+              <td><%= f.select :genre_id, options_for_select([['ジャンルを選択してください', ''], ['ケーキ', '1'], ['プリン', '2'], ['焼き菓子', '3'], ['キャンディ', '4']]), {}, {class: 'genre__select'} %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :税抜価格 %></td>
+              <td style = "padding: 0 30px 0 0;"><%= f.label :税抜価格 %></td>
               <td><%= f.text_field :price, autofocus: true, size: "60x5", placeholder: "1000" %>円</td>
             </tr>
 
             <tr>
-              <td><%= f.label :販売ステータス %></td>
+              <td style = "padding: 0 30px 0 0;"><%= f.label :販売ステータス %></td>
               <td>
                 <%= f.radio_button :is_active, '1' %>
                 <%= f.label :is_active, '販売中', value: 1 %>
