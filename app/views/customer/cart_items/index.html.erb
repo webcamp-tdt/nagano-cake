@@ -1,0 +1,36 @@
+<div style="font-weight:550;margin:30px 30px 30px 190px;">
+  <span style="font-size:20px;background-color:#dcdcdc;padding:0px 15px;">ショッピングカート</span>
+</div>
+
+<table style="margin-left: 20%;margin-right: 15%;">
+  <thead>
+    <tr style="background-color:#dcdcdc;padding:30px;border-bottom: solid 1px #696969;">
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart_items.each do |cart_items| %>
+      <tr>
+        <td>
+          <%= cart_items.item.name %>
+        </td>
+        <td>
+          <%= cart_items.item.price * 1.1.round %>
+        </td>
+        <td>
+          <%= cart_items.quantity %>
+        </td>
+        <td>
+          <%= cart_items.item.price * 1.1.round * cart_items.quantity %>
+        </td>
+        <td>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

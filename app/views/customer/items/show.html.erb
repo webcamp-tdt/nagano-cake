@@ -13,9 +13,10 @@
       <h5 style = "padding: 0 0 50px 0;"><%= @item.introduction %></p>
       <h5><strong>￥<%= @item.price*1.1.round %></strong></h5><p>（税込）</p>
 
-      <%= form_with model:@cart_item, url:cart_items_path, local:true do |f| %>
-        <%= f.select :amount, [['1',1], ['2',2], ['3',3]] %>
-        <%= f.hidden_field :items_id, value =>"カートに入れる" %>
+      <%= form_with model:@cart_item, url:cart_items_path, method: :post, local:true do |f| %>
+        <%= f.select :quantity, [['1',1], ['2',2], ['3',3]] %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+         <%= f.submit "カートに入れる", class: "btn btn-lg btn-success" %>
       <% end %>
 
     </div>
