@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row", style = "padding: 30px 0">
+      
+    <div class="col-md-2">
+     <div class="border border-solid: 3px;">
+       <div class="header border border-solid">
+         <p>ジャンル検索</p>
+       </div>
+       <div class="main border border-solid">
+          <% @genres.each do |genre| %>
+              <p><%= genre.name %></p>
+          <% end %>
+       </div> 
+     </div>
+    </div>  
+
+    <div class="col-md-10">
+       <div class="header">
+         <span style="font-size: 30px;">商品一覧</span><span>(全件)</span>
+       </div>
+     <div  style="display: flex; flex-wrap: wrap;">
+      <% @items.each do |item| %>
+         <div class="box" style="width: 200px; margin-right: 20px;">
+        　<%= link_to item_path(item.id) do %>
+          　<%= attachment_image_tag item,:image, :size =>'200x100'%></br>
+          　<%= item.name %></br>
+         　 ¥<%= item.price.to_s(:delimited, delimiter: ',') %>
+          <% end %>
+         </div>
+      <% end %>
+ 　  </div>
+ 　 </div>
+ 　 
+ </div>　
+</div>
+
