@@ -25,7 +25,12 @@
           <%= cart_items.item.price * 1.1.round %>
         </td>
         <td>
-          <%= cart_items.quantity %>
+          <%= form_with model:cart_items, url:cart_item_path(cart_items.id), method: :patch, local:true do |f| %>
+                <p>
+                  <%= f.select :quantity, [['1',1], ['2',2], ['3',3]] %>
+                  <%= f.submit "変更", class: "btn btn-primary" %>
+                </p>
+          <% end %>
         </td>
         <td>
           <%= cart_items.item.price * 1.1.round * cart_items.quantity %>
