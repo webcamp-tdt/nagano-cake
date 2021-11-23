@@ -2,6 +2,7 @@ class Customer::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
+    @total = @cart_items.inject(0) { |sum, cart_item| sum + cart_item.item.price * 1.1.round * cart_item.quantity}
   end
 
   def create

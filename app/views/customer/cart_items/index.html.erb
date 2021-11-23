@@ -39,7 +39,11 @@
           <%= link_to '削除する', cart_item_path(cart_items.id), method: :delete, "date-confirm" => "本当に削除しますか", class: "btn btn-success" %>
         </td>
       </tr>
+
     <% end %>
+     <div>
+        ¥<%= @total.round.to_s(:delimited) %>
+      </div>
   </tbody>
 </table>
 
