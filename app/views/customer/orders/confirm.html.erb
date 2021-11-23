@@ -1,0 +1,46 @@
+<!--<div style="font-weight:550;margin:30px 30px 30px 190px;">-->
+<!--  <span style="font-size:20px;background-color:#dcdcdc;padding:0px 15px;">注文情報確認</span>-->
+<!--</div>-->
+
+<table>
+    <caption style="font-size:20px;background-color:#dcdcdc;">注文情報確認</caption>
+    <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @order.each do |order| %>
+        <tr>
+          <td>
+             <% @item = order.order_item %>
+             <% @item.each do |items| %>
+             <%= attachment_image_tag items.item,:@image, :size =>'60x60' %>
+             <%= items.item.name %>
+          </td>
+          <td><%= items.item.price*1.1 %></td>
+          <td></td>
+          <td></td>
+        </tr>
+       <% end %>
+      <% end %>
+    </tbody>
+</table>
+
+<table>
+    <tr>
+      <th>送料</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>商品合計</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>請求金額</th>
+      <td></td>
+    </tr>
+</table>
