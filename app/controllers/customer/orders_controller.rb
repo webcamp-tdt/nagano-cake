@@ -1,24 +1,25 @@
 class Customer::OrdersController < ApplicationController
-    
-  def new 
-  end 
-  
+
+  def new
+  end
+
   def index
     @orders = Order.all
-  end 
-  
+  end
+
   def show
     @order = Order.find(params[:id])
     @order_item = @order.order_items
-  end 
-  
+  end
+
   def create
-  end 
-  
+  end
+
   def confirm
-  end 
-  
+  end
+
   def complete
-  end 
-  
+    # @order_complete = current_customer
+  end
+
 end
