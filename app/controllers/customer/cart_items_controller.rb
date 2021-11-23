@@ -1,8 +1,6 @@
 class Customer::CartItemsController < ApplicationController
 
   def index
-    # @cart_items = Cart_item.all
-
     @cart_items = current_customer.cart_items
   end
 
@@ -17,9 +15,15 @@ class Customer::CartItemsController < ApplicationController
   end
 
   def destroy
+    cart_item = current_customer.cart_items.find(params[:id])
+    cart_item.destroy
+    redirect_to cart_items_path
   end
 
   def destroy_all
+    cart_items = current_customer.cart_items
+    cart_items.destroy_all
+    redirect_to cart_items_path
   end
 
   private
