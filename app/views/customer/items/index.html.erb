@@ -16,7 +16,14 @@
 
     <div class="col-md-10">
        <div class="header">
-         <span style="font-size: 30px;">商品一覧</span><span>(全件)</span>
+         <span style="font-size: 30px;">商品一覧</span>
+         <span>
+         (全
+         <!--<%# @items.each do |item| %>-->
+         <!--<%#= item.count %>-->
+         <!--<%# end %>-->
+         件)
+         </span>
        </div>
      <div  style="display: flex; flex-wrap: wrap;">
       <% @items.each do |item| %>
