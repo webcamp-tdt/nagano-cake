@@ -1,24 +1,24 @@
 <div style="font-weight:550;margin:30px 30px 30px 190px;">
   <span style="font-size:20px;background-color:#dcdcdc;padding:0px 15px;">注文情報入力</span>
 </div>
-<%= form_with(model: @order, local: true, url: orders_path, method: :post) do |f| %>
+<%= form_with(model: @order, local: true, url: orders_confirm_path, method: :post) do |f| %>
 <div class="field row" style="margin-left:20px; ">
         <h4><strong>支払い方法</strong></h4>
         <label style="margin-left: 60px;">
-        <%= f.radio_button :payment, 0, checked: "checked"%> クレジットカード </label><br>
+        <%= f.radio_button :payment, "credit_card" %> クレジットカード </label><br>
         <label style="margin-left: 60px;">
-        <%= f.radio_button :payment, 1 %> 銀行振込</label>
+        <%= f.radio_button :payment, "transfer" %> 銀行振込</label>
         <h4><strong>お届け先</strong></h4>
-        <label style="margin-left: 60px;"><%= f.radio_button :address,1,checked: "checked" %> ご自身の住所 </label><br>
+        <label style="margin-left: 60px;"><%= f.radio_button :address_number,1,checked: "checked" %> ご自身の住所 </label><br>
         <div style="margin-left:70px;">
         <%= current_customer.postcode %> <%= current_customer.address %><br>
         <%= current_customer.first_name %><%= current_customer.last_name %></div>
         <div>
-          <label style="margin-left: 60px;"><%= f.radio_button :address,2 %> 登録済住所から選択</label><br>
-          <div style="margin-left:80px; padding:0 100px;"><%= f.collection_select(:address, @shippings, :id, :address_all)%><br><br>
+          <label style="margin-left: 60px;"><%= f.radio_button :address_number,2 %> 登録済住所から選択</label><br>
+          <div style="margin-left:80px; padding:0 100px;"><%= collection_select(:address, :id, current_customer.shippings, :id, :address_all)%><br><br>
           </div>
         </div>
-        <label style="margin-left: 60px;"><%= f.radio_button :address,3 %> 新しいお届け先</label><br>
+        <label style="margin-left: 60px;"><%= f.radio_button :address_number,3 %> 新しいお届け先</label><br>
         <table>
             <tr>
               <td><%#= f.label :郵便番号(ハイフンなし) %></td>

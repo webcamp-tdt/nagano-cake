@@ -1,0 +1,41 @@
+<div style="font-weight:550;margin:30px 30px 30px 190px;">
+  <span style="font-size:20px;background-color:#dcdcdc;padding:0px 15px;">注文履歴一覧</span>
+</div>
+<table style="margin-left: 20%;margin-right: 15%;">
+  <thead>
+    <tr style="background-color:#dcdcdc;padding:30px;border-bottom: solid 1px #696969;">
+      <th width="10%">購入日時</th>
+      <th width="20%">購入者</th>
+      <th>注文個数</th>
+      <th>注文ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td>
+          <%= link_to admin_order_path(order.id) do %>
+            <%= order.created_at %>
+          <% end %>
+        </td>
+        <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
+       
+        <td><%= OrderItem.sumquantity %></td>
+        
+        <td>
+         <% if order.wait? %>
+          <p>入金待ち</p>
+          <% elsif order.confirm? %>
+          <p>入金確認</p>
+          <% elsif order.make? %>
+          <p>制作中</p>
+          <% elsif order.ready? %>
+          <p>配送準備中</p>
+          <% elsif order.complete? %>
+          <p>配送済み</p>
+         <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

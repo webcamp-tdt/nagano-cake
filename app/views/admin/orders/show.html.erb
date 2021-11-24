@@ -1,0 +1,45 @@
+<span style="font-size: 20px; background-color: #dcdcdc">
+    注文履歴詳細
+</span>
+
+<table border="0">
+    <table border="1">
+        
+        　　<tr>
+              <th style="background-color: #dcdcdc">購入者</th>
+              <td><%= @order.customer.first_name %><%= @order.customer.last_name %></td>
+            </tr>
+            
+            <tr>
+              <th style="background-color: #dcdcdc">注文日</th>
+              <td><%= @order.created_at %></td>
+            </tr>
+            
+            <tr>
+              <th>配送先</th>
+              <td><%= @order.delivery %></td>
+            </tr>
+            
+            <tr>
+              <th>支払方法</th>
+              <td><% if @order.credit_card? %>
+                <p>クレジットカード</p>
+                <% elsif @order.transfer? %>
+                <p>銀行振込</p>
+                <% end %>
+              </td>
+            </tr>
+            
+            <tr>
+              <th>ステータス</th>
+              <td> 
+               <%= form_with model:@order, url:admin_order_path, method: :patch, local:true do |f| %>
+                <%= f.select :status, [['入金待ち',"wait"], ['入金確認',"confirm"], ['制作中',"make"],['配送準備中',"ready"],['配送済み',"complete"]] %>
+                <%#= f.hidden_field :item_id, :value => @item.id %>
+                <%= f.submit "更新", class: "btn btn-lg btn-success" %>
+               <% end %>
+                
+              </td>
+            </tr>
+    </table>
+    
