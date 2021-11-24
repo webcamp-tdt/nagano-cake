@@ -19,7 +19,7 @@
             <%= order.created_at %>
           <% end %>
         </td>
-        <td><%= order.name %></td>
+        <td><%= order.customer.name %></td>
         <td><%= order.order_items.quantity %></td>
         <td><%= order.status %></td>
       </tr>
