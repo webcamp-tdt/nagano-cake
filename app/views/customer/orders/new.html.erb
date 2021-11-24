@@ -19,7 +19,7 @@
 
         <div>
           <label style="margin-left: 60px;"><%= f.radio_button :address,2 %> 登録済住所から選択</label><br>
-          <div style="margin-left:80px; padding:0 100px;"><%= f.collection_select :address, @shippings, :id, :address_all %><br><br>
+          <div style="margin-left:80px; padding:0 100px;"><%= f.collection_select :registered, @shippings, :id, :address_all %><br><br>
           </div>
         </div>
 
