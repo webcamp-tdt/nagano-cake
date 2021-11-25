@@ -30,8 +30,20 @@
                 <% end %>
               </td>
               <td><%= order.total_payment %></td>
-              <td><%= order.status %></td>
-              <td><%= link_to '表示する', order_path, class:"btn btn-primary" %></td>
+              <td>
+                <% if order.wait? %>
+                <p>入金待ち</p>
+                <% elsif order.confirm? %>
+                <p>入金確認</p>
+                <% elsif order.make? %>
+                <p>制作中</p>
+                <% elsif order.ready? %>
+                <p>配送準備中</p>
+                <% elsif order.complete? %>
+                <p>配送済み</p>
+                <% end %>
+              </td>
+              <td><%= link_to '表示する', order_path(order), class:"btn btn-primary" %></td>
             </tr>
           <% end %>
         </tbody>

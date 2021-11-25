@@ -25,13 +25,13 @@ class Customer::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  before_action :check_customer, only: [:create]
+  # before_action :check_customer, only: [:create]
   
-  def check_customer
-    if current_customer.is_deleted == true
-      reset_session
-      redirect_to root_path
-    end
-  end  
+  # def check_customer
+  #   if current_customer.is_deleted == true
+  #     reset_session
+  #     redirect_to root_path
+  #   end
+  # end  
 end
 
