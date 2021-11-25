@@ -7,9 +7,11 @@ class Order < ApplicationRecord
       self.post_code + self.address + self.receiver
   end 
 
+
   
   has_many :order_items
   belongs_to :customer
   
   
 end
+

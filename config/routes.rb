@@ -38,10 +38,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
      delete 'destroy_all'
       end
      end
+
+
     post 'orders/confirm' => 'orders#confirm'
-     get 'orders/complete' => 'orders#complete'
-    resources :orders, :only => [:new, :create, :index, :show] 
-   
+    get 'orders/complete' => 'orders#complete'
+    resources :orders, :only => [:new, :create, :index, :show]
+
 
     patch 'customers/mypage' => 'customers#update'
     get 'customers/mypage/edit' => 'customers#edit'

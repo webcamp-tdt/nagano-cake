@@ -1,7 +1,8 @@
 class Customer < ApplicationRecord
-  
+
   has_many :shippings
   has_many :orders
+
   has_many :cart_items, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
