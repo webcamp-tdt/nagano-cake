@@ -19,9 +19,25 @@
             <%= order.created_at %>
           <% end %>
         </td>
-        <td><%= order.customer.name %></td>
-        <td><%= order.order_items.quantity %></td>
-        <td><%= order.status %></td>
+
+        <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
+       
+        <td><%= order.order_items.sumquantity %></td>
+        
+        <td>
+         <% if order.wait? %>
+          <p>入金待ち</p>
+          <% elsif order.confirm? %>
+          <p>入金確認</p>
+          <% elsif order.make? %>
+          <p>制作中</p>
+          <% elsif order.ready? %>
+          <p>配送準備中</p>
+          <% elsif order.complete? %>
+          <p>配送済み</p>
+         <% end %>
+        </td>
+
       </tr>
     <% end %>
   </tbody>
