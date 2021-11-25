@@ -1,5 +1,6 @@
 class Customer::OrdersController < ApplicationController
-    
+
+   
    def new
     @order = Order.new
     #@shippings = Shipping.all
@@ -84,3 +85,4 @@ class Customer::OrdersController < ApplicationController
   end
   
 end 
+
