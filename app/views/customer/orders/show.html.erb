@@ -19,12 +19,29 @@
             
             <tr>
               <th>支払方法</th>
-              <td><%= @order.payment %></td>
+              <td><% if @order.credit_card? %>
+                <p>クレジットカード</p>
+                <% elsif @order.transfer? %>
+                <p>銀行振込</p>
+                <% end %>
+              </td>
             </tr>
             
             <tr>
               <th>ステータス</th>
-              <td><%= @order.status %></td>
+              <td> 
+                <% if @order.wait? %>
+                <p>入金待ち</p>
+                <% elsif @order.confirm? %>
+                <p>入金確認</p>
+                <% elsif @order.make? %>
+                <p>制作中</p>
+                <% elsif @order.ready? %>
+                <p>配送準備中</p>
+                <% elsif @order.complete? %>
+                <p>配送済み</p>
+                <% end %>
+              </td>
             </tr>
     </table>
     
@@ -33,12 +50,12 @@
       
         　　<tr>
         　　  <th style="background-color: #dcdcdc">商品合計</th>
-           　<!--<td><%= @order.total_payment - @order.postage %></td>-->
+           　<td><%= @total.round.to_s(:delimited) %></td>
         　　</tr>
         　　
         　　<tr>
         　　  <th>配送料</th>
-            <td><% @order.postage %></td>
+            <td><%= @order.postage %></td>
         　　</tr>
         　　
         　　<tr>
@@ -47,26 +64,25 @@
         　　</tr>
     </table>
 </table>
-
+<caption style="margin-rigth: auto;">注文内容</caption>
 <table>
-  <caption style="margin-rigth: auto;">注文内容</caption>
-  
-  <thead>
+  <thead style="background-color: #dcdcdc">
     <tr>
-      <th style="background-color: #dcdcdc">商品</th>
+      <th>商品</th>
       <th>単価（税込）</th>
       <th>個数</th>
       <th>小計</th>
     </tr>
   </thead>
-  
-  <tbody>
-      <tr>
-        <td><%= @order_item.item.name %></td>
-        <td><%= @order_item.price_intax %></td>
-        <td><%= @order_item.quantity %></td>
-        <td><%= @order_items.price_intax*quantity %></td>
-      </tr>
-  </tbody>
+  <% @order_item.each do |order| %>
+    <tbody>
+        <tr>
+          <td><%= order.item.name %></td>
+          <td><%= order.price_intax %></td>
+          <td><%= order.quantity %></td>
+          <td><%= order.price_intax*order.quantity %></td>
+        </tr>
+    </tbody>
+  <% end %>
   
 </table>

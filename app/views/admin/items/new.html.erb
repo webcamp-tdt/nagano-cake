@@ -36,10 +36,10 @@
             <tr>
               <td style = "padding: 0 30px 0 0;"><%= f.label :販売ステータス %></td>
               <td>
-                <%= f.radio_button :is_active, '販売中' %>
-                <%= f.label :is_active, '販売中', value: 1 %>
-                <%= f.radio_button :is_active, '販売停止中' %>
-                <%= f.label :is_active, '販売停止中', value: 0 %>
+                <%= f.radio_button :is_active, 'true' %>
+                <%= f.label :is_active, '販売中', value: true %>
+                <%= f.radio_button :is_active, 'false' %>
+                <%= f.label :is_active, '販売停止中', value: false %>
               </td>
             </tr>
 
