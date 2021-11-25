@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row", style = "padding: 20px 0">
+    <div class = "col-md-2">
+      ジャンル
+    </div>
+
+    <div class = "col-md-4">
+       <%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg' %>
+    </div>
+
+    <div class = "col-md-5">
+      <h4><strong><%= @item.name%></strong></h4>
+      <h5 style = "padding: 0 0 50px 0;"><%= @item.introduction %></p>
+      <h5><strong>￥<%= @item.price*1.1.round %></strong></h5><p>（税込）</p>
+       <% if customer_signed_in? %>
+          <%= form_with model:@cart_item, url:cart_items_path, method: :post, local:true do |f| %>
+            <%= f.select :quantity, [['1',1], ['2',2], ['3',3]] %>
+            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.submit "カートに入れる", class: "btn btn-lg btn-success" %>
+          <% end %>
+       <% end %>
+
+    </div>
+  </div>
+</div>

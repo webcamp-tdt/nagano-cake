@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="row">
+    <div class = "col-md">
+      <div style="margin: 30px;">
+        <span style="font-size:20px;background-color:#dcdcdc"><%= @customer.full_name %>さんの会員情報編集</span>
+      </div>
+
+    　<% if @customer.errors.any? %>
+        <%= @customer.errors.count %>件のエラーが発生しました
+        <% @customer.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
+      <% end %>
+
+      <%= form_with model:@customer, url:admin_customer_path(@customer.id), local:true do |f| %>
+        <form>
+          <table>
+            <tr>
+              <td>
+               <%= f.label :会員ID %>
+              </td>
+              <td>
+                <%= @customer.id %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <%= f.label :氏名 %>
+              </td>
+              <td>
+                <%= f.text_field :first_name, autofocus: true %>
+                <%= f.text_field :last_name, autofocus: true %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <%= f.label :フリガナ %>
+              </td>
+              <td>
+                <%= f.text_field :first_name_kana, autofocus: true %>
+                <%= f.text_field :last_name_kana, autofocus: true %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <%= f.label :郵便番号 %>
+              </td>
+              <td>
+                <%= f.text_field :postcode, autofocus: true %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <%= f.label :住所 %>
+              </td>
+              <td>
+                <%= f.text_field :address, autofocus: true, autocomplete: "住所", size: "60x5" %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <%= f.label :電話番号 %>
+              </td>
+              <td>
+                <%= f.text_field :phone_number, autofocus: true %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <%= f.label :メールアドレス %>
+              </td>
+              <td>
+                <%= f.email_field :email, autofocus: true %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <%= f.label :会員ステータス %>
+              </td>
+              <td>
+                <%= f.radio_button :is_deleted, 'false' %>
+                <%= f.label :is_deleted, '有効', value: false %>
+                <%= f.radio_button :is_deleted, 'true' %>
+                <%= f.label :is_deleted, '退会', value: true %>
+              </td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>
+                <%= f.submit "変更を保存", class: "btn btn-block btn-sm btn-success" %>
+              </td>
+            </tr>
+          </table>
+        </form>
+      <% end %>
+    </div>
+  </div>
+</div>
