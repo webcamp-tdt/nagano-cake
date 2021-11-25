@@ -5,7 +5,9 @@
 <div class="field row" style="margin-left:20px; ">
         <h4><strong>支払い方法</strong></h4>
         <label style="margin-left: 60px;">
+
         <%= f.radio_button :payment, "credit_card", checked: "checked" %> クレジットカード </label><br>
+
         <label style="margin-left: 60px;">
         <%= f.radio_button :payment, "transfer" %> 銀行振込</label>
         <h4><strong>お届け先</strong></h4>
@@ -36,4 +38,4 @@
         <div><%= f.submit "確認画面へ進む", class: "btn  btn-sm btn-primary" %></div>
   </div>
   <% end %>
-     
+
