@@ -2,7 +2,7 @@
     ジャンル編集
 </span>
 
-<%= form_with model:@genre, ulr: admin_genre_path(@genre.id), local:true do |f| %>
+<%= form_with model:@genre, url: admin_genre_path(@genre), local:true do |f| %>
  <div style="margin-left: 20px;">
 　ジャンル名
 　　<span>

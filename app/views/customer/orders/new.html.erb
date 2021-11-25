@@ -5,7 +5,7 @@
 <div class="field row" style="margin-left:20px; ">
         <h4><strong>支払い方法</strong></h4>
         <label style="margin-left: 60px;">
-        <%= f.radio_button :payment, "credit_card" %> クレジットカード </label><br>
+        <%= f.radio_button :payment, "credit_card", checked: "checked" %> クレジットカード </label><br>
         <label style="margin-left: 60px;">
         <%= f.radio_button :payment, "transfer" %> 銀行振込</label>
         <h4><strong>お届け先</strong></h4>
@@ -21,7 +21,7 @@
         <label style="margin-left: 60px;"><%= f.radio_button :address_number,3 %> 新しいお届け先</label><br>
         <table>
             <tr>
-              <td><%#= f.label :郵便番号(ハイフンなし) %></td>
+              <td><%= f.label :郵便番号（ハイフンなし） %></td>
               <td><%= f.text_field :post_code, autofocus: true, placeholder: "0000000" %></td>
             </tr>
             <tr>

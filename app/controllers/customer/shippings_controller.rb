@@ -1,7 +1,7 @@
 class Customer::ShippingsController < ApplicationController
 
    def index
-    @shippings = Shipping.all
+    @shippings = current_customer.shippings.all
     @shipping_new = Shipping.new
     #@shipping = Shipping.find(params[:id])
    end
