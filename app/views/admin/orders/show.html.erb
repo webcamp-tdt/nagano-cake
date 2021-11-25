@@ -49,15 +49,15 @@
       <th>制作ステータス</th>
     </tr>
   </thead>
-  <% @order_item.each do |order| %>
+  <% @order_items.each do |order_item| %>
     <tbody>
         <tr>
-          <td><%= order.item.name %></td>
-          <td><%= order.price_intax %></td>
-          <td><%= order.quantity %></td>
-          <td><%= order.price_intax*order.quantity %></td>
+          <td><%= order_item.item.name %></td>
+          <td><%= order_item.price_intax %></td>
+          <td><%= order_item.quantity %></td>
+          <td><%= order_item.price_intax*order_item.quantity %></td>
           <td>
-            <%= form_with model:order, url:admin_order_item_path, method: :patch, local:true do |f| %>
+            <%= form_with model:order_item, url:admin_order_item_path(order_item.id), method: :patch, local:true do |f| %>
               <%= f.select :production_status, [['着手不可',"impossible"], ['制作待ち',"ready"], ['制作中',"make"],['制作完了',"complete"]] %>
               <%= f.submit "更新", class: "btn btn-lg btn-success" %>
             <% end %>

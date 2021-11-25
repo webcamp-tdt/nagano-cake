@@ -3,8 +3,9 @@ class Admin::GenresController < ApplicationController
   def index
     @genre = Genre.new
     @genres = Genre.all
-    # @genre_id = Genre.find(params[:id])
-  end
+
+ end
+
 
   def create
     @genre = Genre.new(genre_params)
@@ -14,14 +15,12 @@ class Admin::GenresController < ApplicationController
 
   def edit
     @genre = Genre.find(params[:id])
-
   end
 
   def update
     genre = Genre.find(params[:id])
     genre.update(genre_params)
     redirect_to admin_genres_path
-
   end
 
   private
