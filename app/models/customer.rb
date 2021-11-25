@@ -11,8 +11,10 @@ class Customer < ApplicationRecord
     self.first_name + " " + self.last_name
   end
   
-    #def active_for_authentication?
-        #super && (self.is_deleted == false)
-   # end
+  # enum is_deleted: {available: true, invalid: false}
+  
+    def active_for_authentication?
+        super && (self.is_deleted == false)
+    end
 
 end

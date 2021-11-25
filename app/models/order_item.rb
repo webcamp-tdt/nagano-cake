@@ -5,6 +5,6 @@ class OrderItem < ApplicationRecord
     enum production_status: { impossible: 0, ready: 1, make: 2, complete: 3 }
     
     def self.sumquantity
-     sum(:quantity)
+      sum(:quantity)
     end 
 end

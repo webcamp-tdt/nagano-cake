@@ -20,7 +20,7 @@
         </td>
         <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
        
-        <td><%= OrderItem.sumquantity %></td>
+        <td><%= order.order_items.sumquantity %></td>
         
         <td>
          <% if order.wait? %>

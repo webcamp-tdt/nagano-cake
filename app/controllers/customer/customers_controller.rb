@@ -16,16 +16,13 @@ class Customer::CustomersController < ApplicationController
 
   def check
     @customer = current_customer
-    #ユーザーの情報を見つける
   end
 
   def withdraw
     @customer = current_customer
-    #現在ログインしているユーザーを@userに格納
-    @customer.update(is_deleted: "退会")
-    #updateで登録情報をInvalidに変更
+    @customer.update(is_deleted: true)
+    reset_session
     redirect_to root_path
-    #指定されたrootへのpath
   end
 
   private

@@ -17,7 +17,7 @@ class Customer::OrdersController < ApplicationController
     @total = @order_items.inject(0) { |sum, order_item| sum + order_item.item.price * 1.1.round * order_item.quantity}
    end
    
-   def create
+  def create
     cart_items = current_customer.cart_items.all # ログインユーザーのカートアイテムをすべて取り出して cart_items に入れます
     @order = current_customer.orders.new(order_params) # 渡ってきた値を @order に入れます
       if @order.save# ここに至るまでの間にチェックは済ませていますが、念の為IF文で分岐させています
@@ -31,20 +31,19 @@ class Customer::OrdersController < ApplicationController
           order_item.price_intax = cart.item.price * 1.1
     # カート情報を削除するので item との紐付けが切れる前に保存します
           order_item.save
-        end
+          end
         redirect_to orders_complete_path
         cart_items.destroy_all
     # ユーザーに関連するカートのデータ(購入したデータ)をすべて削除します(カートを空にする)
-      else
-        @order = Order.new(order_params)
-        render :new
+      else  @order = Order.new(order_params)
+           render :new
       end
-    end 
+  end 
    
   def confirm
     @cart_items = current_customer.cart_items
-    @total = @cart_items.inject(0) { |sum, cart_item| sum + cart_item.item.price * 1.1.round * cart_item.quantity}
-    @totals = @cart_items.inject(0) { |sum, cart_item| sum + 800 + cart_item.item.price * 1.1.round * cart_item.quantity}
+    @total = @cart_items.inject(0) { |sum, cart_item| sum + (cart_item.item.price * 1.1).round * cart_item.quantity}
+    @totals = @cart_items.inject(0) { |sum, cart_item| sum + (cart_item.item.price * 1.1).round * cart_item.quantity} + 800
     @order = Order.new(order_params) #情報を渡している
   #分岐
     # if params[:order][:payment] == "0"
